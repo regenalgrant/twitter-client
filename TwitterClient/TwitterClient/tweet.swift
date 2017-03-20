@@ -15,7 +15,7 @@ class Tweet {
         var user : User?                      //(?)optional
         
         init? (json: [String: Any])  {  //dictionary of json /String can be Keys from dictionary
-            if let text = json ['text"] as? String, let id = json ["id_str"] as? String  {
+            if let text = json ["text"] as? String, let id = json ["id_str"] as? String  {
                 self.text  = text
                 self.id = id
                 if let userDictionary = json [ "user" ] as? [String : Any ] {
