@@ -10,23 +10,23 @@ import Foundation
 
 
 class User  {
-
-    let   name : String 
-    let profileImageUrl : String
-    let location : String
+    let name: String
+    let profileImageUrl: String
+    let location: String
     
-    init?(json: String [String: Any])  {
+    init?(json:[String: Any]){
         if let name = json[" name" ] as? String,
-            let profileImageUrl = json["profile_image_Url"] {
-            location = json [location] as? String{
-                
-                self.name = name
-                self.location = name
-            } else {
-                return nil
-            }
+            let profileImageUrl = json["profile_image_url"] as? String ,
+            let location = json ["location"] as? String {
+            self.name = name
+            self.profileImageUrl = profileImageUrl
+            self.location = location
+            
+        }
+        else{
+            return nil
+        }
         
     }
-    
     
 }
