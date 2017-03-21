@@ -14,14 +14,14 @@ typealias JSONParserCallback = (Bool, [Tweet]?) -> ()
 class JSONParser {
     static var sampleJSONData : Data {
         guard let tweetJSONPath = Bundle.main.url(forResource: "tweet", withExtension: "json") else {
-            fatalError("Tweet,json does not exist in this bundle")
+            fatalError("Tweet, json does not exist in this bundle")
         }
         do {
             let tweetJSONData = try Data(contentsOf: tweetJSONPath)
             return tweetJSONData
         }
         catch {
-                fatalError("Failed to create data from tweetJSONPath")
+                fatalError("Failed to create data from tweet JSONPath")
         }
     }
     class func tweetsFrom(data: Data, callback: JSONParserCallback) {
