@@ -10,11 +10,12 @@ import Foundation
 
 class Tweet {
     
-        static let text : String
-        var allTweets = [Tweet]()
+        let text : String
+        let id: String
+    
 //(?)optional//
         var user : User?
-    
+
     //dictionary of json /String can be Keys from dictionary//
         init? (json:[String: Any])  {
             if let text = json ["text"] as? String, let id = json ["id_str"] as? String  {
