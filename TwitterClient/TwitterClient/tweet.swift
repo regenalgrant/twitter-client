@@ -9,8 +9,9 @@
 import Foundation
 
 class Tweet {
-        let text : String
-        let id : String
+    
+        static let text : String
+        var allTweets = [Tweet]()
 //(?)optional//
         var user : User?
     
