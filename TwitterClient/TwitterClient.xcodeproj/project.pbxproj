@@ -16,6 +16,7 @@
 		99038FC21E80541100B01539 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99038FC11E80541100B01539 /* user.swift */; };
 		99038FC41E806D6900B01539 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99038FC31E806D6900B01539 /* JSONParser.swift */; };
 		99038FC61E80781100B01539 /* HomeTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99038FC51E80781100B01539 /* HomeTimelineViewController.swift */; };
+		997CC7731E819E9800576FFD /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997CC7721E819E9800576FFD /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		99038FC11E80541100B01539 /* user.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
 		99038FC31E806D6900B01539 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		99038FC51E80781100B01539 /* HomeTimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimelineViewController.swift; sourceTree = "<group>"; };
+		997CC7721E819E9800576FFD /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				99038FAB1E803F1300B01539 /* AppDelegate.swift */,
 				99038FAF1E803F1300B01539 /* Main.storyboard */,
 				99038FC51E80781100B01539 /* HomeTimelineViewController.swift */,
+				997CC7721E819E9800576FFD /* API.swift */,
 				99038FB21E803F1300B01539 /* Assets.xcassets */,
 				99038FB41E803F1300B01539 /* LaunchScreen.storyboard */,
 				99038FB71E803F1300B01539 /* Info.plist */,
@@ -154,6 +157,7 @@
 				99038FC41E806D6900B01539 /* JSONParser.swift in Sources */,
 				99038FC01E8053F000B01539 /* tweet.swift in Sources */,
 				99038FAC1E803F1300B01539 /* AppDelegate.swift in Sources */,
+				997CC7731E819E9800576FFD /* API.swift in Sources */,
 				99038FC61E80781100B01539 /* HomeTimelineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +322,7 @@
 				99038FBC1E803F1300B01539 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
