@@ -11,7 +11,7 @@ import Foundation
 
 class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var allTweets = [Tweet]() {
         didSet {
@@ -24,13 +24,20 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         
         self.tableView.dataSource = self //dataSource will pull in tableView //
         updateTimeline()
+        self.tableView.estimatedRowHeight = 50
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+        updateTimeline()
     
     }
     
     func updateTimeline(){
+        self.activityIndicator.startAnimating()
+        
         API.shared.getTweets {(tweets)in
             OperationQueue.main.addOperation {
             self.allTweets = tweets ?? []
+                self.activityIndicator.stopAnimating()//stop after network request
                 
             }
         }
@@ -42,9 +49,9 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let tweet = allTweets[indexPath.row]
-        
-        cell.textLabel?.text = tweet.text
+        if let cell = cell as? TweetCell {
+            cell.tweetText.text = allTweets [indexPath.row].text
+        }
         
         return cell
     }

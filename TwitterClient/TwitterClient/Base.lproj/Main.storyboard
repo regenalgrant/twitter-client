@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,7 +34,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qby-3x-mo0">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qby-3x-mo0">
                                                     <rect key="frame" x="15" y="4" width="34" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -52,8 +53,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="i8N-LG-v3M">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nrp-wf-lhZ">
+                                <rect key="frame" x="0.0" y="61" width="375" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="i8N-LG-v3M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7Fc-UB-JOE"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Nrp-wf-lhZ" secondAttribute="bottom" constant="8" id="UKW-ca-N4w"/>
+                            <constraint firstItem="Nrp-wf-lhZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="V3I-NF-HVf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="i8N-LG-v3M" secondAttribute="trailing" id="XTY-bQ-2OO"/>
+                            <constraint firstItem="i8N-LG-v3M" firstAttribute="top" secondItem="Nrp-wf-lhZ" secondAttribute="bottom" id="gfP-yu-xqW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="i8N-LG-v3M" secondAttribute="bottom" id="n8u-Je-2EB"/>
+                            <constraint firstItem="Nrp-wf-lhZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="ryN-DP-Mqf"/>
+                            <constraint firstAttribute="trailing" secondItem="Nrp-wf-lhZ" secondAttribute="trailing" constant="8" id="sFa-Vg-4q2"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Jo6-8Y-2Tq" id="abc-Bq-ZBn"/>
