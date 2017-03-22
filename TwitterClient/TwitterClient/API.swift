@@ -10,25 +10,22 @@ import Foundation
 import Accounts
 import Social
 
-typealias AccountCallback = (ACAccount?) -> ()
-typealias TweetsCallback = ([Tweet]?) -> ()
-
+typealias AccountCallback = (ACAccount?)->()
+typealias TweetsCallback = ([Tweet]?)->()
+typealias UserCallback = (User?)->()
 
 class API {
-    static let shared = API() //a singleton global instance of API//
-
+    static let shared = API()
+    
     var account : ACAccount?
-
-    private func  login(callback: @escaping AccountCallback){ //tweeter will be given//can escape this
+    
+    private func login(callback: @escaping AccountCallback) {
         let accountStore = ACAccountStore()
-        
         let accountType = accountStore.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
         
-        accountStore.requestAccessToAccounts(with: accountType, options: nil){(success, error)
-            in
-            
+        accountStore.requestAccessToAccounts(with: accountType, options: nil) { (success, error) in
             if let error = error {
-                print("Error: \(error.localizedDescription)" )
+                print("Error: \(error.localizedDescription).")
                 callback(nil)
                 return
             }
@@ -38,33 +35,31 @@ class API {
                     callback(account)
                 }
             } else {
-                print("The user did not allow access to thier account")
+                print("The user did not allow access to their account.")
                 callback(nil)
             }
         }
     }
-    private func getOAuthUser (callback: @escaping UserCallback){
-        let url = URL(string: "https://api.twitter.com/1.1/account/verify_credentils.json")
-        if let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, url: url, parameters : nil){
+    
+    private func getOAuthUser(callback: @escaping UserCallback) {
+        let url = URL(string: "https://api.twitter.com/1.1/accounts/verify_credentials.json")
+        
+        if let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, url: url, parameters: nil) {
             request.account = self.account
-            request.perform(handler: {(data, response, error) in
-                
-                if let error = error{
+            
+            request.perform(handler: { (data, response, error) in
+                if let error = error {
                     print("Error: \(error)")
                     callback(nil)
                     return
                 }
                 
-                guard let response = response else {
-                    callback(nil); return
-                }
-                guard let data = data else {
-                    callback(nil); return
-                }
+                guard let response = response else { callback(nil); return }
+                guard let data = data else { callback(nil); return }
                 
                 switch response.statusCode {
                 case 200...299:
-                    JSONParser.userTweeter(data: data, callback: {(success, user)in
+                    JSONParser.authenticatedUser(data: data, callback: { (success, user) in
                         if success {
                             callback(user)
                         }
@@ -72,58 +67,67 @@ class API {
                 case 400...499:
                     print("Client side error: \(response.statusCode)")
                 case 500...599:
-                    print("Client side error: \(response.statusCode)")
+                    print("Server side error: \(response.statusCode)")
                 default:
-                    print(" Error: response came back with statusCode: \(response.statusCode)")
+                    print("Error: Response came back with StatusCode: \(response.statusCode)")
                     callback(nil)
                 }
             })
         }
     }
-
-    private func updateTimeLine(callback: @escaping TweetsCallback){
-        let url = URL(string:"https://api.twitter.com/1.1/statuses/home_timeline.json")
-        if let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, url: url, parameters: nil){
+    
+    private func updateTimeline(callback: @escaping TweetsCallback) {
+        let url = URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")
+        
+        if let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, url: url, parameters: nil) {
             request.account = self.account
-            request.perform(handler: {(data, response, error) in
+            
+            request.perform(handler: { (data, response, error) in
                 if let error = error {
-                    print("Eror: Error requesting user's home timeline -\(error.localizedDescription)")
+                    print("Error: Error requesting user's home timeline - \(error.localizedDescription)")
                     callback(nil)
                     return
                 }
-                guard let response = response else {callback(nil); return}
-                guard let data  = data else {callback(nil); return }
                 
-                if response .statusCode >= 200 && response.statusCode < 300 {
-                    JSONParser.tweetsFrom(data: data, callback: {(success, tweets) in
+                guard let response = response else { callback(nil); return }
+                guard let data = data else { callback(nil); return }
+                
+                switch response.statusCode {
+                case 200...299:
+                    JSONParser.tweetsFrom(data: data, callback: { (success, tweets) in
                         if success {
                             callback(tweets)
                         }
                     })
-                    
-                } else {
-                    print("Something else went terribly Wrong We have a status code outside 200-299.")
-                    callback(nil) // can use switch command
+                case 300...399:
+                    print("Client side error \(response.statusCode)")
+                case 400...499:
+                    print("Client side error \(response.statusCode)")
+                case 500...599:
+                    print("Server side error: \(response.statusCode)")
+                default:
+                    print("Error: Response came back with StatusCode: \(response.statusCode)")
+                    callback(nil)
                 }
             })
         }
     }
-    func getTweets(callback: @escaping TweetsCallback){
+    
+    func getTweets(callback: @escaping TweetsCallback) {
         if self.account == nil {
+            
             login(callback: { (account) in
-                if let account = account{
+                if let account = account {
                     self.account = account
-                    self.updateTimeLine(callback: { (tweets) in
+                    self.updateTimeline(callback: { (tweets) in
                         callback(tweets)
                     })
                 }
             })
-            } else {
-                self.updateTimeLine(callback: {(tweets) in
-                    callback(tweets)
-        })
+        } else {
+            self.updateTimeline(callback: callback) // Essentially doing the same thing as above. How though? I'm confused.
+        }
     }
-    }
-
+    
 }
 
