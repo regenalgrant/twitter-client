@@ -11,7 +11,6 @@ import Accounts
 import Social
 
 typealias AccountCallback = (ACAccount?) -> ()
-typealias UserCallback = (User?) -> ()
 typealias TweetsCallback = ([Tweet]?) -> ()
 
 
@@ -65,19 +64,23 @@ class API {
                 
                 switch response.statusCode {
                 case 200...299:
-                     if let userJSON = try! JSONSerialization.jsonObject(with:data, options: .mutableContainers) as? [String: Any]{
-                        let user = User(json: userJSON)
-                        callback(user)
-                     }
-                
+                    JSONParser.userTweeter(data: data, callback: {(success, user)in
+                        if success {
+                            callback(user)
+                        }
+                    })
+                case 400...499:
+                    print("Client side error: \(response.statusCode)")
+                case 500...599:
+                    print("Client side error: \(response.statusCode)")
                 default:
                     print(" Error: response came back with statusCode: \(response.statusCode)")
                     callback(nil)
                 }
             })
         }
-        
     }
+
     private func updateTimeLine(callback: @escaping TweetsCallback){
         let url = URL(string:"https://api.twitter.com/1.1/statuses/home_timeline.json")
         if let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, url: url, parameters: nil){

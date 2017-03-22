@@ -19,8 +19,6 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
 
-
-
     override func viewDidLoad() {
     super.viewDidLoad() //override parents version but continue to do the function //
         
