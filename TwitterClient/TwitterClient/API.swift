@@ -33,7 +33,8 @@ class API {
             
             if success {
                 if let account = accountStore.accounts(with: accountType).first as? ACAccount {
-                    callback(account)
+                    callback(account)//account is a local account from "if let account"
+                    //if an array .first will access the first account
                 }
             } else {
                 print("The user did not allow access to their account.")
@@ -49,10 +50,10 @@ class API {
             request.account = self.account
             
             request.perform(handler: { (data, response, error) in
-                if let error = error {
+                if let error = error { //always use error before success
                     print("Error: \(error)")
                     callback(nil)
-                    return
+                    return //return used to escape the call back
                 }
                 
                 guard let response = response else { callback(nil); return }
