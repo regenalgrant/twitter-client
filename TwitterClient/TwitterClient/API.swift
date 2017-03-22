@@ -18,14 +18,15 @@ class API {
     static let shared = API()
     
     var account : ACAccount?
-    
+    //get twitter account from device, using the Accounts Framework//escaping asychronist
     private func login(callback: @escaping AccountCallback) {
-        let accountStore = ACAccountStore()
-        let accountType = accountStore.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
+        let accountStore = ACAccountStore()//comes from accounts framework
+        let accountType = accountStore.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)//account instance of ACAccount store
         
         accountStore.requestAccessToAccounts(with: accountType, options: nil) { (success, error) in
-            if let error = error {
-                print("Error: \(error.localizedDescription).")
+            
+            if let error = error { //unwrapping error// if error will store it here
+                print("Error: \(error.localizedDescription).") //localize make app more dynamic for other language
                 callback(nil)
                 return
             }
