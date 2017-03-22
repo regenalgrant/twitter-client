@@ -22,15 +22,29 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
     super.viewDidLoad() //override parents version but continue to do the function //
         
+        self.navigationItem.title = "Time Line" //Title on the UI//
         self.tableView.dataSource = self //dataSource will pull in tableView //
         updateTimeline()
+        
         self.tableView.estimatedRowHeight = 50
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        
         updateTimeline()
     
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == "showDetailSegue" { //attribute in the storyboard
+            if let selectedIndex = self.tableView.indexPathForSelectedRow?.row { //selected row clicked on
+                let selectedTweet = self.allTweets[selectedIndex]
+                
+                guard let destinationController = segue.destination as? TweetDetailViewController else { return }
+                
+                destinationController.tweet = selectedTweet
+                }
+        }
+            
+    }
     func updateTimeline(){
         self.activityIndicator.startAnimating()
         
@@ -50,7 +64,7 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         if let cell = cell as? TweetCell {
-            cell.tweetText.text = allTweets [indexPath.row].text
+            cell.TweetText.text = allTweets [indexPath.row].text
         }
         
         return cell
