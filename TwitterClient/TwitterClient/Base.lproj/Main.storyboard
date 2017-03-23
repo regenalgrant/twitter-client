@@ -88,19 +88,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDR-l8-SwM">
-                                <rect key="frame" x="0.0" y="40" width="375" height="627"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hpQ-6k-PJE">
+                                <rect key="frame" x="0.0" y="64" width="42" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDR-l8-SwM">
+                                        <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="xDR-l8-SwM" secondAttribute="bottom" id="2aU-az-WQc"/>
+                                    <constraint firstAttribute="trailing" secondItem="xDR-l8-SwM" secondAttribute="trailing" id="3ZS-oX-Zpx"/>
+                                    <constraint firstItem="xDR-l8-SwM" firstAttribute="top" secondItem="hpQ-6k-PJE" secondAttribute="top" id="isU-Nu-Ri7"/>
+                                    <constraint firstItem="xDR-l8-SwM" firstAttribute="leading" secondItem="hpQ-6k-PJE" secondAttribute="leading" id="lbN-hC-3uS"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="xDR-l8-SwM" secondAttribute="trailing" id="1aV-MS-chK"/>
-                            <constraint firstItem="oY4-ef-DYH" firstAttribute="top" secondItem="xDR-l8-SwM" secondAttribute="bottom" id="JSi-OC-ioe"/>
-                            <constraint firstItem="xDR-l8-SwM" firstAttribute="top" secondItem="do7-Xc-5pc" secondAttribute="top" constant="40" id="g3H-FL-FhX"/>
-                            <constraint firstItem="xDR-l8-SwM" firstAttribute="leading" secondItem="do7-Xc-5pc" secondAttribute="leading" id="ywt-4N-TIt"/>
+                            <constraint firstItem="hpQ-6k-PJE" firstAttribute="top" secondItem="Lus-gC-mNU" secondAttribute="bottom" id="4G7-Ol-lr5"/>
+                            <constraint firstItem="hpQ-6k-PJE" firstAttribute="leading" secondItem="do7-Xc-5pc" secondAttribute="leading" id="XcQ-81-jqr"/>
                         </constraints>
                     </view>
                     <connections>
