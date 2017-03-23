@@ -20,6 +20,7 @@
 		9953F6421E842F5800155586 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9953F6411E842F5800155586 /* ProfileViewController.swift */; };
 		997CC7731E819E9800576FFD /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997CC7721E819E9800576FFD /* API.swift */; };
 		997CC7931E82F9E400576FFD /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997CC7921E82F9E400576FFD /* TweetCell.swift */; };
+		99CC1ADE1E844DE9006D275B /* UIExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CC1ADD1E844DE9006D275B /* UIExtentions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		9953F6411E842F5800155586 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		997CC7721E819E9800576FFD /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		997CC7921E82F9E400576FFD /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		99CC1ADD1E844DE9006D275B /* UIExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtentions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				997CC7921E82F9E400576FFD /* TweetCell.swift */,
 				99038FC51E80781100B01539 /* HomeTimelineViewController.swift */,
 				997CC7721E819E9800576FFD /* API.swift */,
+				99CC1ADD1E844DE9006D275B /* UIExtentions.swift */,
 				99038FB21E803F1300B01539 /* Assets.xcassets */,
 				99038FB41E803F1300B01539 /* LaunchScreen.storyboard */,
 				99038FB71E803F1300B01539 /* Info.plist */,
@@ -170,6 +173,7 @@
 				9953F63E1E8318FC00155586 /* TweetDetailViewController.swift in Sources */,
 				9953F6421E842F5800155586 /* ProfileViewController.swift in Sources */,
 				997CC7731E819E9800576FFD /* API.swift in Sources */,
+				99CC1ADE1E844DE9006D275B /* UIExtentions.swift in Sources */,
 				99038FC61E80781100B01539 /* HomeTimelineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

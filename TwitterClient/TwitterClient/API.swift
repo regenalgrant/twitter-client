@@ -78,10 +78,10 @@ class API {
         }
     }
     
-    private func updateTimeline(callback: @escaping TweetsCallback) {
-        let url = URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")
+    private func updateTimeline(url: String, callback: @escaping TweetsCallback) {
+        let url = URL(string: "")
         
-        if let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, url: url, parameters: nil) {
+        if let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, url: Url(string: url), parameters: nil) {
             request.account = self.account
             
             request.perform(handler: { (data, response, error) in
@@ -121,20 +121,24 @@ class API {
             login(callback: { (account) in
                 if let account = account {
                     self.account = account
-                    self.updateTimeline(callback: { (tweets) in
-                        callback(tweets)
+                    self.updateTimeline(url: "https://api.twitter.com/1.1/statuses/home_timeline.json", callback: { (tweets) in
+                   
                     })
                 }
             })
         } else {
-            self.updateTimeline(callback: callback) // Essentially doing the same thing as above. How though? I'm confused.
-        }
+            self.updateTimeline(url:"https://api.twitter.com/1.1/statuses/home_timeline.json", callback: {(tweets) in callback(tweets) // Essentially doing the same thing as above. How though? I'm confused.
+        })
     }
-    
 }
-
-func getUser(callback: @escaping UserCallback){
-    self.getOAuthUser { (aUser) in
-        guard let userProfile = aUser else { fatalError("Could not access user profile") }
-        callback(userProfile)
+    
+    func getTweetaFor(_ user: String, callback: @escaping TweetsCallback){
+        let urlString = "https://api.twitter.com/1.1/statuses/home_timeline.json?sscreen_name=\(user)"
+        self.updateTimeline(url: urlString) {(tweets) in
+            callback(tweets)
+    
+    
+    
+    
+    
 }
