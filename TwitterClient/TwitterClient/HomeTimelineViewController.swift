@@ -12,6 +12,7 @@ import Foundation
 class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var numberOFTweets: UILabel!
     
     var allTweets = [Tweet]() {
         didSet {

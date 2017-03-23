@@ -12,6 +12,8 @@ class Tweet {
     
         let text : String
         let id: String
+    var isARetweet = false
+    var retweetedStatus : [String: Any]?
     
 //(?)optional//
         var user : User?
@@ -23,6 +25,10 @@ class Tweet {
                 self.id = id
                 if let userDictionary = json [ "user" ] as? [String : Any ] {
                 self.user = User(json: userDictionary)
+                }
+                if let retweetedStatus = json["retweeted_status"]as? [String: Any]{
+                    self.retweetedStatus = retweetedStatus
+                    isARetweet
                 }
             } else {
                 return nil
