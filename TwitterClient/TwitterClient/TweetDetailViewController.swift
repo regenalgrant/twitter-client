@@ -15,14 +15,14 @@ class TweetDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //setup labels
-        
+        retweetText.text = self.tweet.text
         print(self.tweet.user?.name ?? "Unknown")
         print(self.tweet.text)
   
 
     }
 
+    @IBOutlet weak var retweetText: UILabel!
 
 
 }

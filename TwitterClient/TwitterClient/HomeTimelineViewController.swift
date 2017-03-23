@@ -64,7 +64,7 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         if let cell = cell as? TweetCell {
-            cell.TweetText.text = allTweets [indexPath.row].text
+            cell.TweetText.text = allTweets[indexPath.row].text
         }
         
         return cell
