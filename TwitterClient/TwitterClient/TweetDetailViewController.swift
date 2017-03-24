@@ -16,13 +16,12 @@ class TweetDetailViewController: UIViewController {
         super.viewDidLoad()
         
         retweetText.text = self.tweet.text
-        print(self.tweet.user?.name ?? "Unknown")
+        print(self.tweet.user?.name ?? "Unknown User")
         print(self.tweet.text)
   
 
     }
-
+    
     @IBOutlet weak var retweetText: UILabel!
-
 
 }

@@ -25,30 +25,40 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         
         self.navigationItem.title = "Time Line" //Title on the UI//
         self.tableView.dataSource = self //dataSource will pull in tableView //
+        self.tableView.delegate = self
+//        API.shared.getTweets { (fetchTweets) in
+//            if let fetchTweets = fetchTweets {
+//                self.allTweets = fetchTweets 
+//                
+//            }
+//        }
+//        
         updateTimeline()
-        
+        let tweetNib = UINib(nibName: "TweetNibCell", bundle: nil)
+
+        self.tableView.register(tweetNib, forCellReuseIdentifier: TweetNibCell.identifier)
         self.tableView.estimatedRowHeight = 50
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        updateTimeline()
+
     
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        if segue.identifier == "showDetailSegue" { //attribute in the storyboard
+        if segue.identifier == TweetDetailViewController.identifier { //attribute in the storyboard
             if let selectedIndex = self.tableView.indexPathForSelectedRow?.row { //selected row clicked on
-                let selectedTweet = self.allTweets[selectedIndex]
+            let selectedTweet = self.allTweets[selectedIndex]
                 
-                guard let destinationController = segue.destination as? TweetDetailViewController else { return }
-                
-                destinationController.tweet = selectedTweet
-                }
+                if let destinationViewController = segue.destination as? TweetDetailViewController {
+                destinationViewController.tweet = selectedTweet
         }
-            
+            }
+        }
     }
     func updateTimeline(){
         self.activityIndicator.startAnimating()
-        
+        print("update tieleine")
         API.shared.getTweets {(tweets)in
             OperationQueue.main.addOperation {
             self.allTweets = tweets ?? []
@@ -63,12 +73,21 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        if let cell = cell as? TweetCell {
-            cell.TweetText.text = allTweets[indexPath.row].text
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: TweetNibCell.identifier , for: indexPath) as! TweetNibCell
+        
+        let tweet = self.allTweets[indexPath.row]
+        cell.tweet = tweet
         
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("row click")
+        self.performSegue(withIdentifier: TweetDetailViewController.identifier, sender: self)
+    }
+ 
+    
+    
 }
+
 

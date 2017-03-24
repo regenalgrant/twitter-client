@@ -28,7 +28,6 @@ class Tweet {
                 }
                 if let retweetedStatus = json["retweeted_status"]as? [String: Any]{
                     self.retweetedStatus = retweetedStatus
-                    isARetweet
                 }
             } else {
                 return nil

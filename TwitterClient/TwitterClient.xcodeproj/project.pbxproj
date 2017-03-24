@@ -21,6 +21,8 @@
 		997CC7731E819E9800576FFD /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997CC7721E819E9800576FFD /* API.swift */; };
 		997CC7931E82F9E400576FFD /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997CC7921E82F9E400576FFD /* TweetCell.swift */; };
 		99CC1ADE1E844DE9006D275B /* UIExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CC1ADD1E844DE9006D275B /* UIExtentions.swift */; };
+		99CC1AE11E8467D8006D275B /* TweetNibCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CC1ADF1E8467D8006D275B /* TweetNibCell.swift */; };
+		99CC1AE21E8467D8006D275B /* TweetNibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99CC1AE01E8467D8006D275B /* TweetNibCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		997CC7721E819E9800576FFD /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		997CC7921E82F9E400576FFD /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		99CC1ADD1E844DE9006D275B /* UIExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtentions.swift; sourceTree = "<group>"; };
+		99CC1ADF1E8467D8006D275B /* TweetNibCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetNibCell.swift; sourceTree = "<group>"; };
+		99CC1AE01E8467D8006D275B /* TweetNibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetNibCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,8 @@
 				99038FAB1E803F1300B01539 /* AppDelegate.swift */,
 				99038FAF1E803F1300B01539 /* Main.storyboard */,
 				9953F63D1E8318FC00155586 /* TweetDetailViewController.swift */,
+				99CC1ADF1E8467D8006D275B /* TweetNibCell.swift */,
+				99CC1AE01E8467D8006D275B /* TweetNibCell.xib */,
 				997CC7921E82F9E400576FFD /* TweetCell.swift */,
 				99038FC51E80781100B01539 /* HomeTimelineViewController.swift */,
 				997CC7721E819E9800576FFD /* API.swift */,
@@ -151,6 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99CC1AE21E8467D8006D275B /* TweetNibCell.xib in Resources */,
 				99038FB61E803F1300B01539 /* LaunchScreen.storyboard in Resources */,
 				99038FB31E803F1300B01539 /* Assets.xcassets in Resources */,
 				99038FB11E803F1300B01539 /* Main.storyboard in Resources */,
@@ -168,6 +175,7 @@
 				99038FC21E80541100B01539 /* user.swift in Sources */,
 				997CC7931E82F9E400576FFD /* TweetCell.swift in Sources */,
 				99038FC41E806D6900B01539 /* JSONParser.swift in Sources */,
+				99CC1AE11E8467D8006D275B /* TweetNibCell.swift in Sources */,
 				99038FC01E8053F000B01539 /* tweet.swift in Sources */,
 				99038FAC1E803F1300B01539 /* AppDelegate.swift in Sources */,
 				9953F63E1E8318FC00155586 /* TweetDetailViewController.swift in Sources */,

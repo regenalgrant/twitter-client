@@ -79,17 +79,18 @@ class API {
     }
     
     private func updateTimeline(url: String, callback: @escaping TweetsCallback) {
-        let url = URL(string: "")
+        //let url = URL(string: " ")
         
-        if let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, url: Url(string: url), parameters: nil) {
+        if let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, url: URL(string: url), parameters: nil) {
             request.account = self.account
             
             request.perform(handler: { (data, response, error) in
                 if let error = error {
-                    print("Error: Error requesting user's home timeline - \(error.localizedDescription)")
+                    print("Error: Error requesting user's home timeline  \(error.localizedDescription)")
                     callback(nil)
                     return
                 }
+            
                 
                 guard let response = response else { callback(nil); return }
                 guard let data = data else { callback(nil); return }
@@ -122,6 +123,8 @@ class API {
                 if let account = account {
                     self.account = account
                     self.updateTimeline(url: "https://api.twitter.com/1.1/statuses/home_timeline.json", callback: { (tweets) in
+                        print(tweets ?? "whatever")
+                        callback(tweets)
                    
                     })
                 }
@@ -130,15 +133,14 @@ class API {
             self.updateTimeline(url:"https://api.twitter.com/1.1/statuses/home_timeline.json", callback: {(tweets) in callback(tweets) // Essentially doing the same thing as above. How though? I'm confused.
         })
     }
-}
+  }
     
-    func getTweetaFor(_ user: String, callback: @escaping TweetsCallback){
+    func getTweetFor(_ user: String, callback: @escaping TweetsCallback){
         let urlString = "https://api.twitter.com/1.1/statuses/home_timeline.json?sscreen_name=\(user)"
         self.updateTimeline(url: urlString) {(tweets) in
             callback(tweets)
+        }
     
-    
-    
-    
-    
+    }
 }
+    
