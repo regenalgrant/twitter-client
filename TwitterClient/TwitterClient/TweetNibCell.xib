@@ -19,29 +19,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="489" height="157"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" ambiguous="YES" misplaced="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwT-Y3-0Yc">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwT-Y3-0Yc">
                         <rect key="frame" x="101" y="15" width="112" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="112" id="ciK-Do-KDs"/>
+                        </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nzf-hX-HgW">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nzf-hX-HgW">
                         <rect key="frame" x="101" y="44" width="380" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDr-a9-Dok">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GDr-a9-Dok">
                         <rect key="frame" x="8" y="15" width="85" height="38"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="85" id="xN9-0S-4Ck"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="GDr-a9-Dok" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="795-AV-NK7"/>
-                    <constraint firstItem="Nzf-hX-HgW" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="8" id="9za-QU-h80"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Nzf-hX-HgW" secondAttribute="bottom" constant="14" id="PXw-rS-VEC"/>
-                    <constraint firstItem="Nzf-hX-HgW" firstAttribute="top" secondItem="gwT-Y3-0Yc" secondAttribute="bottom" constant="8" id="Yw7-Du-rSH"/>
-                    <constraint firstItem="GDr-a9-Dok" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="twc-R6-xt6"/>
-                    <constraint firstItem="Nzf-hX-HgW" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="8" id="ypw-b6-sfL"/>
+                    <constraint firstItem="Nzf-hX-HgW" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="03p-fN-ZFW"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="GDr-a9-Dok" secondAttribute="bottom" constant="95" id="G8B-oR-LcJ"/>
+                    <constraint firstItem="GDr-a9-Dok" firstAttribute="top" secondItem="gwT-Y3-0Yc" secondAttribute="top" id="QBt-CD-bro"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Nzf-hX-HgW" secondAttribute="bottom" constant="83" id="Ses-4f-Qwm"/>
+                    <constraint firstItem="Nzf-hX-HgW" firstAttribute="top" secondItem="gwT-Y3-0Yc" secondAttribute="bottom" constant="8" symbolic="YES" id="Spk-B6-OI2"/>
+                    <constraint firstItem="gwT-Y3-0Yc" firstAttribute="leading" secondItem="GDr-a9-Dok" secondAttribute="trailing" constant="8" symbolic="YES" id="boL-eI-fBw"/>
+                    <constraint firstItem="GDr-a9-Dok" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="h8A-m1-uer"/>
+                    <constraint firstItem="gwT-Y3-0Yc" firstAttribute="leading" secondItem="Nzf-hX-HgW" secondAttribute="leading" id="qok-My-rox"/>
+                    <constraint firstItem="GDr-a9-Dok" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="zKA-7C-kjQ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
