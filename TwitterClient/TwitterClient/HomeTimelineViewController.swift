@@ -13,6 +13,11 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var numberOFTweets: UILabel!
+
+    
+    @IBAction func profileButtonPressed(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "ProfileViewController", sender: sender)
+    }
     
     var allTweets = [Tweet]() {
         didSet {
@@ -34,6 +39,7 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
 //        }
 //        
         updateTimeline()
+        
         let tweetNib = UINib(nibName: "TweetNibCell", bundle: nil)
 
         self.tableView.register(tweetNib, forCellReuseIdentifier: TweetNibCell.identifier)
@@ -55,8 +61,13 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         }
             }
         }
+        
+        if segue.identifier == "ProfileViewController" {
+            guard segue.destination is ProfileViewController else { return }
+        }
     }
-    func updateTimeline(){
+        
+    func updateTimeline() {
         self.activityIndicator.startAnimating()
         print("update tieleine")
         API.shared.getTweets {(tweets)in

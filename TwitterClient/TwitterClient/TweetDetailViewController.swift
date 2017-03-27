@@ -14,14 +14,22 @@ class TweetDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         retweetText.text = self.tweet.text
+        retweetedLabel.text = "Retweet count is: \(self.tweet.retweetCount)"
         print(self.tweet.user?.name ?? "Unknown User")
         print(self.tweet.text)
+        if let user = tweet.user {
+            
+            UIImage.fetchImageWith(user.profileImageUrl){ (image) in
+                self.userImageView.image = image
+            }
+        }
   
 
     }
     
+    @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var retweetText: UILabel!
-
+    @IBOutlet weak var retweetedLabel: UILabel!
 }

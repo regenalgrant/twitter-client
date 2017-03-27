@@ -10,7 +10,7 @@ import UIKit
 
 class TweetNibCell: UITableViewCell {
 
-    @IBOutlet weak var useerImageView: UIImageView!
+    @IBOutlet weak var userImageView: UIImageView!
     
     @IBOutlet weak var usernameLabel: UILabel!
     
@@ -18,15 +18,15 @@ class TweetNibCell: UITableViewCell {
    
     var tweet: Tweet! {
         didSet {
-self.tweetLabel.text = tweet.text
-self.usernameLabel.text = tweet.user?.name ?? "Unknown User"
+            self.tweetLabel.text = tweet.text
+            self.usernameLabel.text = tweet.user?.name ?? "Unknown User"
             if let user = tweet.user {
-            
-            UIImage.fetchImageWith(user.profileImageUrl){ (image) in
-                self.useerImageView.image = image
+                
+                UIImage.fetchImageWith(user.profileImageUrl){ (image) in
+                    self.userImageView.image = image
+                }
             }
         }
-    }
 
 }
 }

@@ -18,11 +18,11 @@ class User  {
     init?(json:[String: Any]) {
         // print (json)
         
-        if let name = json[" name" ] as? String,
+        if let name = json["name"] as? String,
             let profileImageUrl = json["profile_image_url_https"] as? String,
-            let location = json ["location"] as? String,
+            let location = json["location"] as? String,
             let screenName = json["screen_name"] as? String {
-                
+        
             self.name = name
             self.profileImageUrl = profileImageUrl
             self.location = location

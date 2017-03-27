@@ -6,21 +6,21 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetNibCell" rowHeight="157" id="KGk-i7-Jjw" customClass="TweetNibCell" customModule="TwitterClient" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="489" height="157"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetNibCell" rowHeight="112" id="KGk-i7-Jjw" customClass="TweetNibCell" customModule="TwitterClient" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="506" height="112"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="489" height="157"/>
+                <rect key="frame" x="0.0" y="0.0" width="506" height="112"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwT-Y3-0Yc">
-                        <rect key="frame" x="101" y="15" width="112" height="21"/>
+                        <rect key="frame" x="105" y="10" width="112" height="61"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="112" id="ciK-Do-KDs"/>
                         </constraints>
@@ -28,37 +28,40 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nzf-hX-HgW">
-                        <rect key="frame" x="101" y="44" width="380" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nzf-hX-HgW">
+                        <rect key="frame" x="105" y="81" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GDr-a9-Dok">
-                        <rect key="frame" x="8" y="15" width="85" height="38"/>
+                        <rect key="frame" x="10" y="14" width="85" height="85"/>
                         <constraints>
+                            <constraint firstAttribute="width" secondItem="GDr-a9-Dok" secondAttribute="height" multiplier="1:1" id="iT9-nl-MV3"/>
                             <constraint firstAttribute="width" constant="85" id="xN9-0S-4Ck"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Nzf-hX-HgW" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="03p-fN-ZFW"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="GDr-a9-Dok" secondAttribute="bottom" constant="95" id="G8B-oR-LcJ"/>
-                    <constraint firstItem="GDr-a9-Dok" firstAttribute="top" secondItem="gwT-Y3-0Yc" secondAttribute="top" id="QBt-CD-bro"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Nzf-hX-HgW" secondAttribute="bottom" constant="83" id="Ses-4f-Qwm"/>
-                    <constraint firstItem="Nzf-hX-HgW" firstAttribute="top" secondItem="gwT-Y3-0Yc" secondAttribute="bottom" constant="8" symbolic="YES" id="Spk-B6-OI2"/>
-                    <constraint firstItem="gwT-Y3-0Yc" firstAttribute="leading" secondItem="GDr-a9-Dok" secondAttribute="trailing" constant="8" symbolic="YES" id="boL-eI-fBw"/>
-                    <constraint firstItem="GDr-a9-Dok" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="h8A-m1-uer"/>
-                    <constraint firstItem="gwT-Y3-0Yc" firstAttribute="leading" secondItem="Nzf-hX-HgW" secondAttribute="leading" id="qok-My-rox"/>
-                    <constraint firstItem="GDr-a9-Dok" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="zKA-7C-kjQ"/>
+                    <constraint firstAttribute="bottom" secondItem="Nzf-hX-HgW" secondAttribute="bottom" constant="10" id="15u-LR-bRn"/>
+                    <constraint firstItem="Nzf-hX-HgW" firstAttribute="top" secondItem="gwT-Y3-0Yc" secondAttribute="bottom" constant="10" id="6dq-5U-bkp"/>
+                    <constraint firstItem="GDr-a9-Dok" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6pg-bD-VS1"/>
+                    <constraint firstItem="Nzf-hX-HgW" firstAttribute="top" secondItem="gwT-Y3-0Yc" secondAttribute="bottom" constant="10" id="9T5-ig-hyP"/>
+                    <constraint firstItem="gwT-Y3-0Yc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="F9y-MR-amn"/>
+                    <constraint firstAttribute="trailing" secondItem="Nzf-hX-HgW" secondAttribute="trailing" constant="10" id="XGq-9t-KbR"/>
+                    <constraint firstItem="Nzf-hX-HgW" firstAttribute="leading" secondItem="GDr-a9-Dok" secondAttribute="trailing" constant="10" id="bsY-so-3UT"/>
+                    <constraint firstAttribute="trailing" secondItem="gwT-Y3-0Yc" secondAttribute="trailing" constant="10" id="ls3-nQ-9fn"/>
+                    <constraint firstItem="GDr-a9-Dok" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="onv-Da-sJ0"/>
+                    <constraint firstItem="Nzf-hX-HgW" firstAttribute="leading" secondItem="GDr-a9-Dok" secondAttribute="trailing" constant="10" id="rOV-bG-MYm"/>
+                    <constraint firstItem="gwT-Y3-0Yc" firstAttribute="leading" secondItem="GDr-a9-Dok" secondAttribute="trailing" constant="10" id="xEc-Tm-Sxk"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="tweetLabel" destination="Nzf-hX-HgW" id="wgv-LS-anJ"/>
-                <outlet property="useerImageView" destination="GDr-a9-Dok" id="p9q-JZ-ria"/>
+                <outlet property="userImageView" destination="GDr-a9-Dok" id="p9q-JZ-ria"/>
                 <outlet property="usernameLabel" destination="gwT-Y3-0Yc" id="2WP-1r-RmA"/>
             </connections>
-            <point key="canvasLocation" x="-109.5" y="107.5"/>
+            <point key="canvasLocation" x="-101" y="85"/>
         </tableViewCell>
     </objects>
 </document>
